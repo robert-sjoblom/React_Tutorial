@@ -1,10 +1,10 @@
 import React from "react";
 
-const Header = () => {
+const Header = (props) => {
     return (
-        <header style={{ height: "100px", display: "flex", justifyContent: "space-around", alignItems: "center", backgroundColor: "salmon"}}>
-            <a href="" data-show="products" style={{textDecoration: "none", color: "white", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "-2px", fontSize: "4em"}}>Products</a>
-            <a href="" data-show="checkout" style={{textDecoration: "none", color: "white", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "-2px", fontSize: "4em"}}>Checkout</a>
+        <header style={{ height: "100px", display: "flex", justifyContent: "space-around", alignItems: "center", backgroundColor: "skyblue"}}>
+            <div onClick={props.onClick} data-show="products" style={{textDecoration: "none", color: "white", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "-2px", fontSize: "4em"}}>Products</div>
+            <div onClick={props.onClick} data-show="products" style={{textDecoration: "none", color: "white", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "-2px", fontSize: "4em"}}>Checkout</div>
         </header>
     );
 };

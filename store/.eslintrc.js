@@ -12,14 +12,13 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
     ],
     "rules": {
         "indent": [
             "error",
             4
         ],
-        "no-unused-vars": ["warn", { "vars": "local", "args": "after-used", "varsIgnorePattern": "React", "ignoreRestSiblings": false }],
         "linebreak-style": [
             "error",
             "windows"
@@ -32,5 +31,6 @@ module.exports = {
             "error",
             "always"
         ]
+        
     }
 };
