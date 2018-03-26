@@ -38,7 +38,6 @@ class App extends Component {
         this.setState(prevState => ({
             cart: cart
         }))
-
     };
 
     showProduct = (id) => {

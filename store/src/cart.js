@@ -7,4 +7,9 @@ const CartSpan = (props) => {
     return (<span>{totalAmt}</span>);
 };
 
+const Basket = (props) => {
+    return (
+        <div></div>
+    )
+}
 export default CartSpan;
