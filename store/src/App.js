@@ -6,7 +6,8 @@ import Checkout from "./Checkout";
 
 class App extends Component {
     state = {
-        products: [{
+        products: [
+            {
             name: "Caltrops",
             price: "5 sp",
             desc: "Hurts to walk on",
@@ -55,7 +56,6 @@ class App extends Component {
     render() {
 
         const viewComponent = (this.state.productView) ? <ProductList prod={this.state.products} addToCart={this.addToCart} showProduct={this.showProduct}/> : <Checkout cart={this.state.cart}/>
-
         return (
             <React.Fragment>
                 <Header onClick={this.changeView} />
