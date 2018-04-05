@@ -2,10 +2,12 @@ import React, {Component} from "react";
 import ProductList from "./ProductList";
 import Header from "./Header";
 import CartSpan from "./cart";
+import Checkout from "./Checkout";
 
 class App extends Component {
     state = {
-        products: [{
+        products: [
+            {
             name: "Caltrops",
             price: "5 sp",
             desc: "Hurts to walk on",
@@ -21,7 +23,9 @@ class App extends Component {
             }
         ],
         cart: {
-        }
+        },
+        productView: true
+
     };
 
     addToCart = (id, event) => {
@@ -38,20 +42,26 @@ class App extends Component {
         this.setState(prevState => ({
             cart: cart
         }))
-
     };
 
     showProduct = (id) => {
         console.log("Product was pressed!", id);
     };
 
+    changeView = () => {
+        this.setState(prevState => ({
+            productView: !prevState.productView
+        }));
+    };
     render() {
+
+        const viewComponent = (this.state.productView) ? <ProductList prod={this.state.products} addToCart={this.addToCart} showProduct={this.showProduct}/> : <Checkout cart={this.state.cart}/>
         return (
-            <div>
-                <Header/>
-                <ProductList prod={this.state.products} addToCart={this.addToCart} showProduct={this.showProduct}/>
+            <React.Fragment>
+                <Header onClick={this.changeView} />
+                {viewComponent}
                 <CartSpan cart={this.state.cart}/>
-            </div>
+            </React.Fragment>
         );
     }
 }

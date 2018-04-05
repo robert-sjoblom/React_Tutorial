@@ -58,7 +58,6 @@ class Form extends React.Component {
 }
 
 class App extends React.Component {
-
     state = {
         cards: []
     };

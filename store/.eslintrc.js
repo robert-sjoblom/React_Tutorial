@@ -19,10 +19,9 @@ module.exports = {
             "error",
             4
         ],
-        "no-unused-vars": ["warn", { "vars": "local", "args": "after-used", "varsIgnorePattern": "React", "ignoreRestSiblings": false }],
         "linebreak-style": [
             "error",
-            "unix"
+            "windows"
         ],
         "quotes": [
             "error",
