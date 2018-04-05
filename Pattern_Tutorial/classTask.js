@@ -1,5 +1,7 @@
+const Repo = require("./taskRepository");
+
 class Task {
-    constructor(name) {
+    constructor({name}) { //destructuring
         this.name = name;
         this.completed = false;
     }
@@ -11,6 +13,7 @@ class Task {
 
     save() {
         console.log("Saving Task: " + this.name);
+        Repo.save(this);
     }
 }
 
