@@ -1,68 +1,44 @@
-import React, {Component} from "react";
-import ProductList from "./ProductList";
+import React, { Component } from "react";
 import Header from "./Header";
-import CartSpan from "./cart";
-import Checkout from "./Checkout";
+import Character from "./Character"
 
 class App extends Component {
     state = {
-        products: [
-            {
-            name: "Caltrops",
-            price: "5 sp",
-            desc: "Hurts to walk on",
-            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Drevnosti_RG_v3_ill130c_-_Caltrop.jpg/250px-Drevnosti_RG_v3_ill130c_-_Caltrop.jpg",
-            id: 1
-        },
-            {
-                name: "Bedroll",
-                price: "1 gp",
-                desc: "To sleep in.",
-                url: "https://images-na.ssl-images-amazon.com/images/I/41inhK8vL5L._SY355_.jpg",
-                id: 2
-            }
-        ],
-        cart: {
-        },
-        productView: true
-
+        char: null,
+        render: false
     };
 
-    addToCart = (id, event) => {
-        const productID = id.toString();
-        const cart = this.state.cart;
-
-        if (cart[productID]) {
-            cart[productID] += 1;
-        } else {
-            cart[productID] = 1;
-        }
-
-        event.stopPropagation();
-        this.setState(prevState => ({
-            cart: cart
-        }))
-    };
-
-    showProduct = (id) => {
-        console.log("Product was pressed!", id);
-    };
-
-    changeView = () => {
-        this.setState(prevState => ({
-            productView: !prevState.productView
-        }));
-    };
+    // reroll = () => {
+    //     this.setState({
+    //         char: new Character()
+    //     })
+    //     console.log("rolled new attributes!");
+    // }
     render() {
-
-        const viewComponent = (this.state.productView) ? <ProductList prod={this.state.products} addToCart={this.addToCart} showProduct={this.showProduct}/> : <Checkout cart={this.state.cart}/>
         return (
             <React.Fragment>
-                <Header onClick={this.changeView} />
-                {viewComponent}
-                <CartSpan cart={this.state.cart}/>
+                <Header />
+                <Attribute value="12" mod="-1"/>
             </React.Fragment>
         );
     }
 }
+
+const RerollButton = props => {
+    if (!props.show) {
+        return <button onClick={props.onClick}>Reroll</button>
+    } else {
+        return null;
+    }
+    
+}
+
+const Attributes = prop => {
+    return (
+        
+    )
+
+}
+const Attribute = prop => <div className="attribute">{prop.value} | {prop.mod}</div>;
+
 export default App;

@@ -1,5 +1,21 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.header {
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: skyblue;
+}
+
+.header-text {
+	color: white;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: -2px;
+	font-size: 4em;
 }
