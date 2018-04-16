@@ -2,27 +2,29 @@ export default class Character {
     constructor() {
         this.attributes = new Attributes();
     }
-
-    validator() {
-        let sum = 0;
-        for (const key in this.attributes) {
-            if (this.attributes.hasOwnProperty(key)) {
-                const element = this.attributes[key].mod;
-                sum += element;
-            }
-        }
-        return (sum >= 0);
-    }
 }
 
 class Attributes {
     constructor() {
-        this.constitution = new Attribute();
-        this.strength = new Attribute();
-        this.dexterity = new Attribute();
-        this.intelligence = new Attribute();
-        this.wisdom = new Attribute();
-        this.charisma = new Attribute();
+        this.attributes = {
+            constitution: new Attribute(),
+            strength: new Attribute(),
+            dexterity: new Attribute(),
+            intelligence: new Attribute(),
+            wisdom: new Attribute(),
+            charisma: new Attribute()
+        };
+    }
+    validator() {
+        let sum = 0;
+        // for (const key in this.attributes) {
+        //     if (this.attributes.hasOwnProperty(key)) {
+        //         const element = this.attributes[key].mod;
+        //         sum += element;
+        //     }
+        // }
+        console.log("Validator was called, returned", (sum>=0));
+        return (sum >= 0);
     }
 }
 class Attribute {
@@ -32,10 +34,10 @@ class Attribute {
     }
 }
 
-function getDiceRoll(start, end, noOfDice=1) {
+function getDiceRoll(start, end, noOfDice = 1) {
     let sum = 0;
     for (let i = 0; i < noOfDice; i++) {
-        sum += Math.floor((Math.random()*end) + start);
+        sum += Math.floor((Math.random() * end) + start);
     }
     return sum;
 }
